@@ -1,0 +1,27 @@
+{
+    "manifest_version": 2,
+    "name": "borderify",
+    "version": "0.0.0",
+    "description": "first add-on",
+    "background": {
+      "scripts": [
+        "/Chaz/Chaz.js",
+        "checked-contextmenu.background.js"
+      ]
+    },
+    "permissions": [
+      "tabs",
+      "clipboardWrite",
+      "<all_urls>"
+    ],
+    "content_scripts": [{
+      "matches": ["<all_urls>"],
+      "js": [
+        "/Chaz/Chaz.js",
+        "checked-contextmenu.content.js"
+      ]
+    }],
+    "web_accessible_resources": [
+      "/checked-contextmenu-iframe.html"
+    ]
+}

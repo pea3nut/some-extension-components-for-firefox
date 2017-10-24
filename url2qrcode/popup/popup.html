@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body{
+            text-align: center;
+            padding:25px 15px;
+            font-size:14px;
+        }
+        *{
+            text-align: center;
+        }
+        a,a:hover,a:active{
+            text-decoration: none;
+            color: #338ff2;
+        }
+        a:hover{
+            text-decoration: underline;
+        }
+        #qrcode{
+            margin:0 auto 25px;
+        }
+        .header-text{
+            font-size:1.5em;
+            margin-bottom: 1em;
+        }
+        p{
+            margin:0;
+        }
+    </style>
+</head>
+<body>
+    <div id="qrcode"></div>
+    <p class="header-text">扫一扫，直接在手机上打开</p>
+    <p>推荐扫描工具 <a href="">Firefox for Android</a></p>
+    <p>或使用微信扫一扫等二维码扫描工具</p>
+    <script src="/Chaz/Chaz.js"></script>
+    <script src="/qrcodejs/qrcode.js"></script>
+    <script src="/popup/url2qrcode-popup.js"></script>
+</body>
+</html>

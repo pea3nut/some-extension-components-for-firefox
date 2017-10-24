@@ -1,0 +1,32 @@
+{
+    "manifest_version": 2,
+    "name": "undo-close",
+    "version": "0.0.1",
+    
+    "icons": {"32":"/images/undo-close-tb@2x.png"},
+    "description": "undo close tabs",
+    "homepage_url": "http://pea3nut.info",
+    
+    "applications": {
+        "gecko": {
+          "id": "pea3nut@qq.com"
+        }
+    },
+
+    "background": {
+        "scripts": ["background.js"]
+    },
+    
+    "permissions": [
+        "sessions",
+        "tabs",
+        "contextMenus"
+    ],
+    
+    "browser_action": {
+        "browser_style": true,
+        "default_icon": "/images/undo-close-tb-active@2x.png",
+        "default_title": "恢复关闭的标签页"
+    }
+
+}

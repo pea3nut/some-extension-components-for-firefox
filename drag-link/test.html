@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>drag-link</title>
+</head>
+<body>
+    <a href="http://aoning.wang/">Wang aoning</a>
+    <div style="width:300px;height:300px;border:1px solid #000" id="dragTarget"></div>
+
+    <input type="checkbox" value="123" />
+    <input type="text">
+    <textarea name="" id="" cols="30" rows="10"></textarea>
+    <p contenteditable="true">喵喵喵？这个是<a href="http://www.baidu.com">百度</a>，而这个是 <a href="http://www.google.com">Google</a>，两个都是搜索引擎，还有<a href="http://www.being">必应</a>，不过貌似很难用就是了</p>
+    <script>
+        function createChooseModal(){
+            var elt =document.createElement('div');
+            elt.setAttribute('style',`
+                width :100%;
+                height :100%;
+                position :fixed;
+                top :0;
+                left :0;
+                background-color :#666;
+                color :#fff;
+                box-sizing:border-box;
+                font-size:30px;
+            `);
+            elt.innerHTML =`
+                <div style="box-sizing:border-box;width:50%;height:100%;float:left;padding-right:1em;display:flex;justify-content:flex-end;align-items:center;border-right:3px solid #000;">
+                    <p>后台标签打开</p>
+                </div>
+                <div style="box-sizing:border-box;width:50%;height:100%;float:left;padding-left:1em;display:flex;justify-content:flex-start;align-items:center;border-left:3px solid #000;">
+                    <p>新标签打开</p>
+                </div>
+            `;
+            return elt
+        };
+
+        var elt =createChooseModal();
+        //document.body.appendChild(elt);
+    </script>
+    <style>
+    </style>
+</body>
+</html>

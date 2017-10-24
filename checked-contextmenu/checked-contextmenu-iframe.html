@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>/*! 这些是从就样式迁移过来的 */
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        #livemargins-toolset {
+            height: 24px;
+            overflow-y: hidden;
+        }
+
+        #livemargins-translate-container {
+            min-height: 100px;
+        }
+
+        #livemargins-translate-container a {
+            background-color: transparent;
+            color: #355f7c;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .livemargins-translate-container a:hover {
+            text-decoration: underline;
+        }
+
+        #livemargins-floatbar {
+            width: auto;
+            height: auto;
+            position: relative;
+        }
+
+        ul {
+            width: auto;
+            height: 24px;
+            background-color: #f5f5f5;
+            border: 1px solid #b6b6b6;
+            border-right: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            float: left;
+            list-style: none;
+            padding-top: 4px;
+            border: none;
+            border-right: 1px solid #dddddd;
+            width: 56px;
+            text-align: center;
+            line-height: 16px;
+            height: 20px;
+            color: #313131;
+            font-size: 13px;
+        }
+
+        li.last-item {
+            border-right: 1px solid #b6b6b6;
+        }
+
+        li:hover {
+            background-color: #c9defa;
+            cursor: pointer;
+        }
+
+        .livemargins-container {
+            min-width: 226px;
+            height: auto;
+            margin-bottom: 0px;
+            margin-top: 0px;
+            clear: both;
+        }
+
+        .livemargins-dict {
+            border: 1px solid #b6b6b6;
+            padding: 16px 12px 12px 12px;
+            min-height: 140px;
+            background-color: #f5f5f5;
+            height: auto;
+            border-bottom: none;
+        }
+
+        .livemargins-word {
+            line-height: 18px;
+            margin-bottom: 6px;
+            color: #313131;
+            text-align: left;
+        }
+
+        .livemargins-item {
+            margin-top: 10px;
+            line-height: 13px;
+            color: #313131;
+        }
+
+        .livemargins-dict >p {
+            clear: none;
+            font-size: 13px;
+            line-height: 20px;
+            margin: 0px;
+            text-align: left;
+            overflow: hidden;
+        }
+
+        .livemargins-word >span {
+            color: #A0A0A0;
+        }
+
+        .livemargins-brand-kingsoft {
+            width: 160px;
+            float: right;
+            background: url("chrome://livemargins/skin/kingsoft.png") no-repeat scroll 0 -2px transparent;
+            background-size: 20px 20px;
+            height: 20px;
+            text-align: inherit;
+        }
+
+        .livemargins-brand-yeekit {
+            width: 176px;
+            float: right;
+            background: url("chrome://livemargins/skin/yeekit.png") no-repeat scroll 0 0 transparent;
+            background-size: 60px 20px;
+            height: 20px;
+            text-align: inherit;
+        }
+
+        .livemargins-footer {
+            height: 20px;
+            border: 1px solid #b6b6b6;
+            border-top: none;
+            background-color: #f5f5f5;
+            padding-bottom: 12px;
+            padding-top: 12px;
+            padding-right: 12px;
+            font-size: 13px;
+            text-align: right;
+            box-sizing: initial;
+        }
+
+        .livemargins-more {
+            cursor: pointer;
+            float: right;
+        }
+
+    </style>
+    <style>
+        body{
+            display: flex;
+        }
+        ul#livemargins-toolset{
+            box-sizing :border-box;
+        }
+    </style>
+</head>
+<body>
+<ul id="livemargins-toolset">
+    <li id="copy">复制</li>
+    <li id="search">搜索</li>
+    <li id="taobao">购物</li>
+    <li id="dict">词典</li>
+    <li id="note">笔记</li>
+    <li id="wiki">百科</li>
+</ul>
+<script src="checked-contextmenu-iframe.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{
+    "browserActionTitle": {
+        "message": "火狐捷径"
+    },
+    "extensionDescription": {
+        "message": "快速启动常用命令。"
+    },
+    "extensionName": {
+        "message": "火狐捷径"
+    },
+    "popup__notepad": {
+        "message": "记事本"
+    },
+    "popup__mspaint": {
+        "message": "画图"
+    },
+    "popup__calc": {
+        "message": "计算器"
+    },
+    "popup__myComputer": {
+        "message": "我的电脑"
+    },
+    "popup__paintWebpage": {
+        "message": "网页截屏"
+    },
+    "popup__switchProfile": {
+        "message": "切换用户配置"
+    },
+    "popup__manageQuickLaunch": {
+        "message": "自定义火狐捷径"
+    }
+}

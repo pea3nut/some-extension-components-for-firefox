@@ -1,0 +1,28 @@
+{
+    "manifest_version": 2,
+    "name": "drag-link",
+    "version": "0.0.1",
+    
+    "description": "drag a link, open in new tag",
+    
+    "applications": {
+        "gecko": {
+          "id": "pea3nut@qq.com"
+        }
+    },
+    
+    "permissions": [
+        "activeTab",
+        "tabs",
+        "http://*/*",
+        "https://*/*"
+    ],
+    "background": {
+        "scripts": ["listen-open-url.bg.js"]
+    },
+    
+    "content_scripts": [{
+      "matches": ["<all_urls>"],
+      "js": ["index.js"]
+    }]
+}

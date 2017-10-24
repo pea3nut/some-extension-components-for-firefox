@@ -1,0 +1,34 @@
+{
+    "manifest_version": 2,
+    "name": "Deal w/ GFW in Google",
+    "version": "2.55",
+    "icons": {
+        "64": "images/easyscreenshot-new-icon.png"
+    },
+    "description": "Deal w/ GFW in Google",
+    "applications": {
+        "gecko": {
+            "id": "Deal-w-GFW-in-Google@mozillaonline.com",
+            "strict_min_version": "54.0.1"
+        }
+    },
+    "permissions": [
+        "tabs",
+        "webRequest",
+        "notifications",
+        "<all_urls>"
+    ],
+    "background": {
+        "scripts": [
+            "background.js"
+        ]
+    },
+    "page_action": {
+        "browser_style": true,
+        "default_icon": {
+            "16": "warning-16.png"
+        },
+        "default_title": "使用百度搜索？",
+        "default_popup": "popup.html"
+    }
+}

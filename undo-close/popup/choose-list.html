@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body{
+            width:240px;
+        }
+        hr{
+            border:none;
+            background-color:#ccc;
+            height:1px;
+            margin:5px 0;
+        }
+        .icon{
+            display: flex;
+            justify-content:flex-start;
+            align-items:center;
+        }
+        .icon img{
+            width:15px;
+            height:15px;
+            margin:0 5px 0 -8px;
+        }
+        .uci-text{
+            text-overflow:ellipsis;
+            white-space:nowrap;
+            overflow: hidden;
+            display:block;
+        }
+    </style>
+</head>
+<body>
+    <div class="panel">
+        <div class="panel-section panel-section-list" id="uc-insert">
+            <div class="panel-list-item uc-item" id="uci-tpl" style="display:none" title="">
+                <div class="icon"><img src="" /></div>
+                <div class="text uci-text">List Item</div>
+            </div>
+        </div>
+        <div class="panel-section-separator"></div>
+        <div class="panel-section panel-section-list uc-item" run-script="restore-all">
+            <div class="panel-list-item" style="display:none;">
+                <div class="icon"><img src="" style="visibility:hidden;" /></div>
+                <div class="text uci-text">清空列表</div>
+            </div>
+            <div class="panel-list-item">
+                <div class="icon"><img src="" style="visibility:hidden;" /></div>
+                <div class="text uci-text">还原所有标签页</div>
+            </div>
+        </div>
+    </div>
+    <script src="/popup/choose-list.js"></script>
+</body>
+</html>
