@@ -7,6 +7,8 @@
             text-align: center;
             padding:25px 15px;
             font-size:14px;
+            overflow: hidden;
+            min-width:280px;
         }
         *{
             text-align: center;
@@ -22,7 +24,7 @@
             margin:0 auto 25px;
         }
         .header-text{
-            font-size:1.5em;
+            font-size:1.2em;
             margin-bottom: 1em;
         }
         p{
@@ -32,10 +34,7 @@
 </head>
 <body>
     <div id="qrcode"></div>
-    <p class="header-text">扫一扫，直接在手机上打开</p>
-    <p>推荐扫描工具 <a href="">Firefox for Android</a></p>
-    <p>或使用微信扫一扫等二维码扫描工具</p>
-    <script src="/Chaz/Chaz.js"></script>
+    <p class="header-text" data-i18n="popupMessage"></p>
     <script src="/qrcodejs/qrcode.js"></script>
     <script src="/popup/url2qrcode-popup.js"></script>
 </body>

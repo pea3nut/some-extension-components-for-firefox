@@ -1,0 +1,14 @@
+{
+  "extensionDescription": {
+    "message": "生成当前网站的二维码"
+  },
+  "extensionName": {
+    "message": "生成当前网站的二维码"
+  },
+  "popupTitle": {
+    "message": "生成当前网站的二维码"
+  },
+  "popupMessage": {
+    "message": "扫一扫，直接在手机上打开"
+  }
+}

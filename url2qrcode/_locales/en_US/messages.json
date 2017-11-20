@@ -1,0 +1,14 @@
+{
+  "extensionDescription": {
+    "message": "Generate QR Code of current page"
+  },
+  "extensionName": {
+    "message": "url2qrcode"
+  },
+  "popupTitle": {
+    "message": "Generate QR Code of current page"
+  },
+  "popupMessage": {
+    "message": "Scan with your phone to open it"
+  }
+}
