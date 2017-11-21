@@ -3,7 +3,7 @@
     "name": "drag-link",
     "version": "0.0.1",
     
-    "description": "open link in new tag which <a> tag is dragged",
+    "description": "open link in a new tag which <a> tag is dragged",
     
     "applications": {
         "gecko": {

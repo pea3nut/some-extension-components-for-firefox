@@ -2,19 +2,21 @@
     "applications": {
         "gecko": {
             "id": "history-dustman@pea3nut.org",
-            "strict_min_version": "57.0"
+            "strict_min_version": "55.0"
         }
     },
-    "description": "clear up you history.",
+    "description": "clear up history.",
     "background": {
         "scripts" :[
-            "background.js"
+            "HistoryDustman.background.js",
+            "demo.background.js"
         ]
     },
     "manifest_version": 2,
     "name": "history dustman",
     "permissions": [
         "history",
+        "sessions",
         "idle"
     ],
     "version": "0.0.1"
