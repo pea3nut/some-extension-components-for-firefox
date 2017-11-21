@@ -3,7 +3,7 @@
     "name": "drag-link",
     "version": "0.0.1",
     
-    "description": "drag a link, open in new tag",
+    "description": "open link in new tag which <a> tag is dragged",
     
     "applications": {
         "gecko": {
@@ -11,18 +11,17 @@
         }
     },
     
-    "permissions": [
-        "activeTab",
-        "tabs",
-        "http://*/*",
-        "https://*/*"
-    ],
+    "permissions": [],
     "background": {
-        "scripts": ["listen-open-url.bg.js"]
+        "scripts": [
+            "drag-link.background.js"
+        ]
     },
     
     "content_scripts": [{
       "matches": ["<all_urls>"],
-      "js": ["index.js"]
+      "js": [
+          "drag-link.content.js"
+      ]
     }]
 }
