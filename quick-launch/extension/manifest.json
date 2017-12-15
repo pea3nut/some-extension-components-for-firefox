@@ -17,6 +17,12 @@
         "default_popup": "popup/popup.html",
         "default_title": "__MSG_browserActionTitle__"
     },
+    "permissions" :[
+        "nativeMessaging"
+    ],
+    "background": {
+        "scripts": ["background.js"]
+    },
     "homepage_url": "http://www.firefox.com.cn/",
     "icons": {
         "32": "images/icons/icon-32x32.png"

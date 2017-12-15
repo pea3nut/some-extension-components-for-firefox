@@ -1,0 +1,7 @@
+{
+    "name": "native_launcher",
+    "description": "Launch the native app of you computer.",
+    "path": "target/debug/native_launcher.exe",
+    "type": "stdio",
+    "allowed_extensions": [ "quicklaunch@mozillaonline.com" ]
+  }
