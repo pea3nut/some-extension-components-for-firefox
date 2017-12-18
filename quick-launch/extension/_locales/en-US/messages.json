@@ -3,10 +3,10 @@
         "message": "Easy Access"
     },
     "extensionDescription": {
-        "message": "快速启动常用命令。"
+        "message": "Easy Access"
     },
     "extensionName": {
-        "message": "火狐捷径"
+        "message": "Easy Access"
     },
     "popup__notepad": {
         "message": "Notepad"
@@ -19,8 +19,5 @@
     },
     "popup__myComputer": {
         "message": "My Computer"
-    },
-    "popup__manageQuickLaunch": {
-        "message": "Manage"
     }
 }

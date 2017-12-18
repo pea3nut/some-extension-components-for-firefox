@@ -19,8 +19,5 @@
     },
     "popup__myComputer": {
         "message": "我的电脑"
-    },
-    "popup__manageQuickLaunch": {
-        "message": "自定义火狐捷径"
     }
 }

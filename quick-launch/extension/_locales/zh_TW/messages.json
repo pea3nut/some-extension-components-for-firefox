@@ -3,10 +3,10 @@
         "message": "Firefox 捷徑"
     },
     "extensionDescription": {
-        "message": "快速启动常用命令。"
+        "message": "Firefox 捷徑"
     },
     "extensionName": {
-        "message": "火狐捷径"
+        "message": "Firefox 捷徑"
     },
     "popup__notepad": {
         "message": "記事本"
@@ -19,8 +19,5 @@
     },
     "popup__myComputer": {
         "message": "我的電腦"
-    },
-    "popup__manageQuickLaunch": {
-        "message": "個人化 Firefox 捷徑"
     }
 }
