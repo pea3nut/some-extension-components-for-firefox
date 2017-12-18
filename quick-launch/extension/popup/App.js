@@ -20,12 +20,12 @@ class App{
                 )elt =elt.parentNode;
 
             if(elt.hasAttribute(this.actionKey)){
-                var returnValue =this.actionMap[elt.getAttribute(this.actionKey)].call(elt);
-                if(returnValue!==false)window.close();
+                this.actionMap[elt.getAttribute(this.actionKey)].call(elt).then(()=>window.close());
             };
         });
     };
 };
+App.debug =true;// Set false when release.
 App.createOpenAction =function(appName){
     return async function(){
         var response =await browser.runtime.sendNativeMessage(
@@ -37,12 +37,10 @@ App.createOpenAction =function(appName){
                 },
             }
         );
-        // there will no exec forever
-        // see https://bugzilla.mozilla.org/show_bug.cgi?id=1382069
         if(response.errcode){
             throw new Error(`Native response: ${response.errmsg}`);
-        }else{//todo: clear when release
-            console.log('Success of sent to native site.');
+        }else{
+            App.debug &&console.log('Success of sent to native site.');
         };
     };
 };

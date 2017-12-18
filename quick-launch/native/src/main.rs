@@ -11,28 +11,23 @@ extern crate winapi;
 
 fn main() {
 
-    loop{
-        
+    let stdin_str =get_stdin(0);
+    let stdin_json =json::parse(&stdin_str).unwrap();
 
-        let stdin_str =get_stdin(0);
-        let stdin_json =json::parse(&stdin_str).unwrap();
-
-        
-        match stdin_json["type"].as_str() {
-            Some("open_native_app") =>{
-                open_native_app(stdin_json["data"]["target"].as_str().unwrap());
-            },
-            _ => panic!("unknown json: {}",stdin_str),
-        };
+    
+    match stdin_json["type"].as_str() {
+        Some("open_native_app") =>{
+            open_native_app(stdin_json["data"]["target"].as_str().unwrap());
+        },
+        _ => panic!("unknown json: {}",stdin_str),
+    };
 
 
-        send_stdout(&json::stringify(object!{
-            "errcode" => 0,
-            "errmsg"  => "ok",
-        }));
+    send_stdout(&json::stringify(object!{
+        "errcode" => 0,
+        "errmsg"  => "ok",
+    }));
 
-
-    }
 }
 
 fn open_native_app(target_name :&str){
@@ -40,11 +35,30 @@ fn open_native_app(target_name :&str){
         "mspaint"   => "\\System32\\mspaint.exe",
         "calc"      => "\\System32\\calc.exe",
         "notepad"   => "\\System32\\notepad.exe",
-        "explorer"  => "\\explorer.exe"
+        "explorer"  => array!["\\explorer.exe",","]
     };
     let windows_path_key = "windir";
 
-    let app_path =name2path[target_name].as_str().unwrap();
+    let app_path =match name2path[target_name] {
+        json::JsonValue::String(ref str) => str.as_str(),
+        json::JsonValue::Short(ref str)  => str.as_str(),
+        json::JsonValue::Array(ref arr)  => arr[0].as_str().unwrap(),
+        _ => panic!("name2path option error! {:?}",name2path[target_name]),
+    };
+    let mut app_args =Vec::new();
+    match name2path[target_name] {
+        json::JsonValue::Array(ref arr)  => {
+            let mut iter =arr[1..].into_iter();
+            loop{
+                match iter.next() {
+                    Some(json_value) => app_args.push(json_value.as_str().unwrap()),
+                    None => break,
+                };
+            };
+        },
+        _ => {},
+    };
+    
     let windows_path =match env::var(windows_path_key) {
         Ok(val) => val,
         Err(e) => panic!("Cannot get var {}: {}", windows_path_key, e),
@@ -52,6 +66,7 @@ fn open_native_app(target_name :&str){
 
     Command::new(windows_path+app_path)
         .creation_flags(winbase::CREATE_BREAKAWAY_FROM_JOB)
+        .args(&app_args)
         .spawn()
         .expect("failed to execute child")
     ;

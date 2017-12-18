@@ -1,6 +1,6 @@
 {
     "browserActionTitle": {
-        "message": "火狐捷径"
+        "message": "Easy Access"
     },
     "extensionDescription": {
         "message": "快速启动常用命令。"
@@ -9,18 +9,18 @@
         "message": "火狐捷径"
     },
     "popup__notepad": {
-        "message": "记事本"
+        "message": "Notepad"
     },
     "popup__mspaint": {
-        "message": "画图"
+        "message": "Paint"
     },
     "popup__calc": {
-        "message": "计算器"
+        "message": "Calculator"
     },
     "popup__myComputer": {
-        "message": "我的电脑"
+        "message": "My Computer"
     },
     "popup__manageQuickLaunch": {
-        "message": "自定义火狐捷径"
+        "message": "Manage"
     }
 }
