@@ -6,7 +6,7 @@ class HistoryDustman{
      * @param {function<Date>} [endTime=now]
      * @param {boolean} [dev=true] - print log.
      * */
-    constructor({startTime=()=>0,endTime=()=>new Date,dev=true,interval=60}){
+    constructor({startTime=()=>0,endTime=()=>new Date,dev=false,interval=60}){
         this.startTime =startTime;
         this.endTime =endTime;
         this.interval =interval;
@@ -40,28 +40,6 @@ class HistoryDustman{
             endTime :this.endTime(),
         });
         this.log('clear history.');
-        var sessions =await browser.sessions.getRecentlyClosed({
-            maxResults :browser.sessions.MAX_SESSION_RESULTS,
-        });
-        for(let session of sessions){
-            console.log(session);
-            if(
-                session.lastModified <this.startTime()
-                || session.lastModified >this.endTime()
-            )continue;
-
-            if('tab' in session){
-                await browser.sessions.forgetClosedTab(
-                    session.tab.windowId,
-                    session.tab.sessionId
-                );
-            }else if('window' in session){
-                await browser.sessions.forgetClosedWindow(
-                    session.window.sessionId
-                );
-            };
-        };
-        this.log('clear session.');
         this.log('send of clear');
     };
     log(){
