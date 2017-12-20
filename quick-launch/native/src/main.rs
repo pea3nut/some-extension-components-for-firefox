@@ -3,7 +3,10 @@ use std::process::Command;
 use std::os::windows::process::CommandExt;
 use winapi::winbase;
 use std::io::{Read,Write,self};
-use std::mem::transmute;
+use std::io::Cursor;
+
+extern crate byteorder;
+use byteorder::{NativeEndian ,ReadBytesExt ,WriteBytesExt};
 
 #[macro_use] extern crate json;
 extern crate winapi;
@@ -76,7 +79,7 @@ fn send_stdout(message:&str){
     let mut stdout =io::stdout();
 
     let message_length =message.len() as u32;
-    let message_length_bytes: [u8; 4] = unsafe{transmute(message_length)};
+    let message_length_bytes: [u8; 4] = u32_to_u8(message_length);
 
     stdout.write(&message_length_bytes).unwrap();
     stdout.write(message.as_bytes()).unwrap();
@@ -90,7 +93,7 @@ fn get_stdin(len:usize) -> String{
     if len==0 {
         let mut stdin_len_byte =[0u8;4];
         stdin.read_exact(&mut stdin_len_byte).unwrap();
-        stdin_len =unsafe{transmute(stdin_len_byte)};
+        stdin_len =u8_to_u32(stdin_len_byte);
     } else {
         stdin_len =len as u32;
     };
@@ -107,4 +110,21 @@ fn get_stdin(len:usize) -> String{
     };
 
     return String::from_utf8(data).unwrap();
+}
+fn u32_to_u8(u32x1:u32) -> [u8;4]{
+    const SIZE:usize =4;
+    let mut u8x4 =[0u8;SIZE];
+    let mut buffer =vec![];
+    buffer.write_u32::<NativeEndian>(u32x1).unwrap();
+
+    let mut index =0;
+    while index <SIZE {
+        u8x4[index] =buffer[index];
+        index =index +1;
+    };
+    return u8x4;
+}
+fn u8_to_u32(u8x4:[u8;4]) -> u32{
+    let mut rdr = Cursor::new(&u8x4);
+    return rdr.read_u32::<NativeEndian>().unwrap();
 }

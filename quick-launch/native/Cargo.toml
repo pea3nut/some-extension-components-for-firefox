@@ -6,3 +6,4 @@ authors = ["pea3nut <pea3nut@qq.com>"]
 [dependencies]
 json = "0.11.12"
 winapi = "0.2.8"
+byteorder = "1"
