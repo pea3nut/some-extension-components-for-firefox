@@ -3,10 +3,10 @@ var ts = require('gulp-typescript');
 var tsProject = ts.createProject('tsconfig.json');
 var through2 =require('through2');
 
-gulp.task('default',['build-ts','build-manifest.json']);
-
-
-gulp.task('test',['build-manifest.json']);
+gulp.task('build',['build-ts','build-manifest.json']);
+gulp.task('dev',['build'],function(){
+    gulp.watch('src/*',['build']);
+});
 
 gulp.task('build-ts', function() {
     return gulp.src('src/**/*.ts')
@@ -75,4 +75,3 @@ function formatJson(originJson){
     return newJson;
 }
 
-gulp.watch('src/*',['default']);

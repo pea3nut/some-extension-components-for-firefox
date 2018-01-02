@@ -16,9 +16,9 @@
       ]
     }
   ],
-  "description": "add move drag default action in Firefox.",
+  "description": "Add move drag default action in Firefox.",
   "manifest_version": 2,
-  "name": "drag-element",
+  "name": "dragging-element",
   "version": "0.0.1",
   "permissions": []
 }

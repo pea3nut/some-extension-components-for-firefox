@@ -1,5 +1,5 @@
 {
-  "name": "draging-element",
+  "name": "dragging-element",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
@@ -7,7 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "gulp build",
+    "dev": "gulp dev"
   },
   "repository": {
     "type": "git",
