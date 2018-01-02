@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<a href="http://127.0.0.1/">127.0.0.1</a>
+<div style="width:300px;height:300px;border:1px solid #000;float:left;" id="dragTarget"></div>
+<div style="width:300px;height:300px;border:1px solid #000;float:left;"></div>
+
+<input type="checkbox" value="123" />
+<input type="text">
+<input type="number">
+<textarea name="" id="" cols="30" rows="10"></textarea>
+<img src="img.png" alt="">
+<p contenteditable="true">喵喵喵？这个是<a href="http://www.baidu.com">百度</a>，而这个是 <a href="http://www.google.com">Google</a>，两个都是搜索引擎，还有<a href="http://www.being">必应</a>，不过貌似很难用就是了</p>
+<script>
+    var dragTarget =document.getElementById('dragTarget');
+    dragTarget.addEventListener('dragover',e=>{
+        // console.log('dragover dragTarget',e.defaultPrevented);
+        e.preventDefault()
+    });
+    dragTarget.addEventListener('drop',e=>{
+        // console.log('drop dragTarget');
+        // console.log(e.defaultPrevented);
+        // console.log(e.dataTransfer);
+        e.preventDefault()
+    });
+
+    document.addEventListener(
+        'dragend',
+        ()=>console.log('dragend222'),
+    );
+</script>
+<script src="../src/App.content.js"></script>
+<style>
+</style>
+</body>
+</html>

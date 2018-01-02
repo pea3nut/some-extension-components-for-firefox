@@ -1,0 +1,8 @@
+{
+    "compilerOptions": {
+        "target":"es6",
+        "lib":["dom","es7","esnext"],
+        "module":"none",
+        "sourceMap": true
+    }
+}

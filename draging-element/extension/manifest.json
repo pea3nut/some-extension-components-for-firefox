@@ -1,0 +1,24 @@
+{
+  "background": {
+    "scripts": [
+      "common.js",
+      "background.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "common.js",
+        "content.js"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+  "description": "add move drag default action in Firefox.",
+  "manifest_version": 2,
+  "name": "drag-element",
+  "version": "0.0.1",
+  "permissions": []
+}
