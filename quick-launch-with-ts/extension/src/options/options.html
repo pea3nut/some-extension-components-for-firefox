@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="chrome://browser/content/extension.css">
+    <link rel="stylesheet" href="options.css" />
+    <link rel="stylesheet" href="/tingle-0.12.0/tingle.css" />
+    <script type="text/x-template" id="modal-template">
+        <ul class="browser-style item-editor">
+            <li class="browser-style">
+                <label v-text="'options__quickLaunchItemName' | i18n"></label>
+                <input type="text" v-model="item.name" />
+            </li>
+            <li class="browser-style">
+                <label v-text="'options__quickLaunchItemPath' | i18n"></label>
+                <div class="file-input-group browser-style">
+                    <input type="text" v-model="item.path" /><button v-el:select-file-button @click="selectFile($el)"></button>
+                </div>
+            </li>
+            <li class="browser-style">
+                <label v-text="'options__quickLaunchItemArgs' | i18n"></label>
+                <input type="text" v-model="itemArgs" />
+            </li>
+            <li class="browser-style">
+                <label style="visibility: hidden"></label>
+                <div class="browser-style">
+                    <input v-model="item.enable" id="switch_item_enable" type="checkbox">
+                    <label v-text="'options__quickLaunchItemEnable' | i18n" for="switch_item_enable"></label>
+                </div>
+            </li>
+        </ul>
+    </script>
+    <script type="text/x-template" id="app-template">
+        <div id="main">
+            <header>
+                <aside class="button-note">
+                    <button class="chaz-button__green"></button>
+                    <p v-text="'options__enableQuickLaunchItem' | i18n"></p>
+                    <button class="chaz-button__blue"></button>
+                    <p v-text="'options__editQuickLaunchItem' | i18n"></p>
+                    <button class="chaz-button__red"></button>
+                    <p v-text="'options__removeQuickLaunchItem' | i18n"></p>
+                </aside>
+                <menu class="action-menu">
+                    <button class="new-item-button" @click="newItem">
+                        <img src="/images/new.svg" alt="">
+                        {{'options__newQuickLaunchItem' | i18n}}
+                    </button>
+                </menu>
+            </header>
+            <article class="item-list-container">
+                <header v-text="'options__quickLaunchItemsTitle' | i18n"></header>
+                <ul class="item-list">
+                    <li v-for="uiData in itemUiList" alt="uiData.fullName">
+                        <img class="hamburger-svg" src="/images/hamburger.svg" width="12" height="12" alt="" />
+                        <img :src="uiData.icon" width="18" height="18" alt="">
+                        <p v-text="uiData.fullName"></p>
+                        <menu>
+                            <button
+                                :class="uiData.origin.enable?'chaz-button__green':'chaz-button__disable'"
+                                @click="toggle(uiData.origin)"
+                            ></button>
+                            <button class="chaz-button__blue" @click="edit(uiData.origin)"></button>
+                            <button class="chaz-button__red" @click="remove(uiData.origin)"></button>
+                        </menu>
+                    </li>
+                </ul>
+            </article>
+        </div>
+    </script>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="/vue-1.0.28-csp.js"></script>
+    <script src="/tingle-0.12.0/tingle.js"></script>
+    <script src="/Sortable-1.4.0/Sortable.js"></script>
+    <script src="/common.js"></script>
+    <script src="options.js"></script>
+</body>
+</html>

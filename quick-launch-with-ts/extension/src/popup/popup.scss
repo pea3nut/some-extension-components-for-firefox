@@ -1,0 +1,20 @@
+body{
+  width: 192px;
+}
+.panel-list-item{
+  .app-icon{
+    display: flex;
+    justify-content:flex-start;
+    align-items:center;
+    img{
+      width :16px;
+      height :16px;
+      margin:0 5px 0 -8px;
+    }
+  }
+  .app-name{
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+  }
+}

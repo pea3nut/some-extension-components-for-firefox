@@ -1,0 +1,23 @@
+{
+    "browserActionTitle": {
+        "message": "Firefox 捷徑"
+    },
+    "extensionDescription": {
+        "message": "Firefox 捷徑"
+    },
+    "extensionName": {
+        "message": "Firefox 捷徑"
+    },
+    "popup__notepad": {
+        "message": "記事本"
+    },
+    "popup__mspaint": {
+        "message": "小畫家"
+    },
+    "popup__calc": {
+        "message": "小算盤"
+    },
+    "popup__myComputer": {
+        "message": "我的電腦"
+    }
+}

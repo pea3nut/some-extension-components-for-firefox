@@ -1,0 +1,159 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:inherit;
+};
+body{
+  box-sizing: border-box;
+}
+.panel-list-item .app-icon{
+  display: flex;
+  justify-content:flex-start;
+  align-items:center;
+  img{
+    width :16px;
+    height :16px;
+    margin:0 5px 0 -8px;
+  }
+}
+
+
+.chaz-button{
+  width:1.2em;
+  height:1.2em;
+  border:none;
+};
+.chaz-button__red{
+  @extend .chaz-button;
+  background: #d70022;
+  &:hover{
+    background: #a4000f;
+  };
+};
+.chaz-button__blue{
+  @extend .chaz-button;
+  background: #0060df;
+  &:hover{
+    background: #003eaa;
+  };
+};
+.chaz-button__green{
+  @extend .chaz-button;
+  background: #12bc00;
+  &:hover{
+    background: #058b00;
+  };
+};
+.chaz-button__disable{
+  @extend .chaz-button;
+  background: #b1b1b3;
+  &:hover{
+    background: #d7d7db;
+  };
+};
+ul.item-editor{
+  li{
+    display:flex;
+    align-items: center;
+    margin:5px 0;
+    label{
+      margin-right:1em;
+      width:60px;
+      text-align: right;
+    }
+    input[type='text']{
+      width:180px;
+    }
+    .file-input-group{
+      $button-size:24px;
+      display:flex;
+      align-items: center;
+      input[type='text']{
+        width:180px -$button-size;
+        border-right: none;
+      }
+      button{
+        width:$button-size;
+        height:$button-size;
+      };
+    }
+  }
+}
+#main{
+  padding:30px 15px 10px;
+  width: 600px;
+  margin:0 auto;
+  & > header{
+    display:flex;
+    margin-bottom:3px;
+    aside{
+      display:flex;
+      align-items: center;
+      p{
+        margin:0 2em 0 .5em;
+      }
+    }
+    .action-menu{
+      margin-left:auto;
+      button{
+        min-width:50px;
+        text-align: center;
+        padding:3px 5px;
+      }
+      .new-item-button{
+        display:flex;
+        align-items: center;
+        background-color: #12bc00;
+        img{
+          width:16px;
+          margin-right:5px;
+        }
+      }
+    }
+  }
+  & > .item-list-container{
+    header{
+      background:#d7d7db;
+      font-size:12px;
+      padding:3px 0;
+      text-align:center;
+    }
+    .item-list{
+      width:100%;
+      border:1px solid #d7d7db;
+      height:300px;
+      overflow:auto;
+      padding:5px 0;
+      &>*{
+        padding:1px 5px;
+        margin:2px 0;
+        display:flex;
+        align-items: center;
+        .hamburger-svg{
+          cursor:grab;
+        }
+        img{
+          margin-right:8px;
+          flex-shrink:0;
+        }
+        p{
+          overflow: hidden;
+          text-overflow:ellipsis;
+          white-space: nowrap;
+        }
+        menu{
+          margin-left:auto;
+          display:flex;
+          align-items: center;
+          button{
+            margin-left:8px;
+          }
+        }
+        &:hover{
+          background: #ededf0;
+        };
+      };
+    }
+  }
+}
+

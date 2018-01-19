@@ -1,0 +1,62 @@
+{
+    "browserActionTitle": {
+        "message": "Easy Access"
+    },
+    "extensionDescription": {
+        "message": "Easy Access"
+    },
+    "extensionName": {
+        "message": "Easy Access"
+    },
+    "popup__notepad": {
+        "message": "Notepad"
+    },
+    "popup__mspaint": {
+        "message": "Paint"
+    },
+    "popup__calc": {
+        "message": "Calculator"
+    },
+    "popup__myComputer": {
+        "message": "My Computer"
+    },
+    "popup__manageQuickLaunch": {
+        "message": "Manage"
+    },
+    "options__pageTitle": {
+        "message": "Manage Apps"
+    },
+    "options__addQuickLaunchItem": {
+        "message": "Add"
+    },
+    "options__cancelAddQuickLaunchItem": {
+        "message": "Cancel"
+    },
+    "options__quickLaunchItemsTitle": {
+        "message": "All Items"
+    },
+    "options__enableQuickLaunchItem": {
+        "message": "Show In Menu"
+    },
+    "options__editQuickLaunchItem": {
+        "message": "Edit"
+    },
+    "options__removeQuickLaunchItem": {
+        "message": "Remove"
+    },
+    "options__newQuickLaunchItem": {
+        "message": "Add"
+    },
+    "options__quickLaunchItemName": {
+        "message": "Name"
+    },
+    "options__quickLaunchItemPath": {
+        "message": "Path"
+    },
+    "options__quickLaunchItemArgs": {
+        "message": "Parameter"
+    },
+    "options__quickLaunchItemEnable": {
+        "message": "Show In Menu"
+    }
+}
