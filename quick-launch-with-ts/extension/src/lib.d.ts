@@ -4,6 +4,7 @@ declare interface VueConstructor{
 declare interface Vue{}
 declare var Vue :VueConstructor;
 
+
 interface QuickLaunchItemUiInfo{
     icon:string;
     shortName:string;
@@ -21,7 +22,15 @@ interface QuickLaunchItem{
 }
 
 interface NativeResponse{
-    errcode :number;
+    errcode :NativeResponseState;
     errmsg  :string;
     data    :any;
+}
+
+declare const enum NativeResponseState{
+    OK =0,
+    ERROR =1,
+    JSON_ILLEGAL =101,
+    EXEC_ERROR =102,
+    SELECT_FILE_CANCEL =103,
 }

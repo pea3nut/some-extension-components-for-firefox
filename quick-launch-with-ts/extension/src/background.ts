@@ -20,6 +20,7 @@ const DefaultItemList:QuickLaunchItem[] =[{
     args :[','],
     enable :true,
 }];
+
 ~async function setDefaultApps(){
     var data =await browser.storage.sync.get('itemList');
     if(!data.itemList){

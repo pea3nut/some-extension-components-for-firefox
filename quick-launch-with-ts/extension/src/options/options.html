@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="options.css" />
     <link rel="stylesheet" href="/tingle-0.12.0/tingle.css" />
     <script type="text/x-template" id="modal-template">
-        <ul class="browser-style item-editor">
+        <ul class="browser-style item-editor" @keypress.enter="confirm" @keypress.esc="exit">
             <li class="browser-style">
                 <label v-text="'options__quickLaunchItemName' | i18n"></label>
                 <input type="text" v-model="item.name" />

@@ -4,4 +4,4 @@
     "path": "target/debug/native_launcher.exe",
     "type": "stdio",
     "allowed_extensions": [ "quicklaunch@mozillaonline.com" ]
-  }
+}

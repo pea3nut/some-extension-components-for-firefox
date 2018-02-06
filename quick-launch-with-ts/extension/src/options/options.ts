@@ -20,10 +20,6 @@ var vm =new Vue({
             return getItemUiList(this.itemList);
         },
     },
-    watch:{
-        itemList(value:QuickLaunchItem[]){
-        },
-    },
     filters :{
         i18n :browser.i18n.getMessage,
     },
@@ -73,12 +69,10 @@ var vm =new Vue({
             );
         });
     },
+    async created(){
+        this.itemList =(await browser.storage.sync.get('itemList')).itemList;
+    },
 });
-
-
-~async function(){
-    vm.itemList =(await browser.storage.sync.get('itemList')).itemList;
-}();
 
 
 async function openItemEditor(item?:QuickLaunchItem){
@@ -106,7 +100,7 @@ async function openItemEditor(item?:QuickLaunchItem){
                     computed:{
                         itemArgs:{
                             get(){return this.item.args?this.item.args.join(' '):''},
-                            set(value:string){this.item.args =value.split(' ')},
+                            set(value:string){this.item.args =value?value.split(' '):[]},
                         },
                     },
                     filters :{
@@ -116,43 +110,55 @@ async function openItemEditor(item?:QuickLaunchItem){
                         async selectFile(){
                             var button:HTMLButtonElement =this.$els.selectFileButton;
                             button.disabled =true;
-                            try{
-                                this.item.path =await selectFile();
-                            }catch(e){
-                                throw e;
-                            }finally{
-                                button.disabled =false;
-                            };
+                            {
+                                let response =await selectFile();
+                                switch(response.errcode){
+                                    case NativeResponseState.OK:
+                                        this.item.path =response.data.path;
+                                        break;
+                                    case NativeResponseState.SELECT_FILE_CANCEL:
+                                        break;
+                                    default:
+                                        alert(response.errmsg);
+                                        break;
+                                };
+                            }
+                            button.disabled =false;
                         },
+                        confirm,exit
                     },
                 });
             },
-            onClose: function(){
-                if(mode ==='new'){
-                    reject();
-                }else if(mode ==='edit'){
-                    resolve();
-                };
-            },
+            onClose: ()=>exit(),
         });
         modal.setContent('<div id="app"></div>');
+        var confirm =function(){
+            if(mode ==='new'){
+                resolve(item);
+            }else if(mode ==='edit'){
+                resolve();
+            };
+            modal.close();
+        };
+        var exit =function(){
+            if(mode ==='new'){
+                reject();
+            }else if(mode ==='edit'){
+                resolve();
+            };
+            modal.close();
+        };
 
         if(mode ==='new'){
             modal.addFooterBtn(
                 browser.i18n.getMessage('options__addQuickLaunchItem'),
                 'tingle-btn tingle-btn--pull-right tingle-btn--primary',
-                function() {
-                    resolve(item);
-                    modal.close();
-                }
+                confirm
             );
             modal.addFooterBtn(
                 browser.i18n.getMessage('options__cancelAddQuickLaunchItem'),
                 'tingle-btn tingle-btn--pull-right tingle-btn--default',
-                function() {
-                    reject();
-                    modal.close();
-                }
+                exit
             );
         };
         modal.open();

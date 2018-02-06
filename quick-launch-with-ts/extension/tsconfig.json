@@ -3,7 +3,14 @@
         "noImplicitAny": true,
         "target":"es6",
         "lib":["dom","es7","esnext"],
+        "types":["firefox-webext-browser"],
         "module":"none",
         "sourceMap": true
-    }
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
 }

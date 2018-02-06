@@ -9,3 +9,7 @@ winapi = "0.2.8"
 byteorder = "1"
 nfd = "0.0.4"
 regex = "0.2"
+local-encoding = "0.2.0"
+
+[profile.release]
+panic = 'abort'

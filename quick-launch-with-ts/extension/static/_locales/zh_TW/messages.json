@@ -19,5 +19,44 @@
     },
     "popup__myComputer": {
         "message": "我的電腦"
+    },
+    "popup__manageQuickLaunch": {
+        "message": "管理"
+    },
+    "options__pageTitle": {
+        "message": "應用管理"
+    },
+    "options__addQuickLaunchItem": {
+        "message": "添加"
+    },
+    "options__cancelAddQuickLaunchItem": {
+        "message": "取消"
+    },
+    "options__quickLaunchItemsTitle": {
+        "message": "所有項"
+    },
+    "options__enableQuickLaunchItem": {
+        "message": "在菜單中顯示"
+    },
+    "options__editQuickLaunchItem": {
+        "message": "編輯"
+    },
+    "options__removeQuickLaunchItem": {
+        "message": "刪除"
+    },
+    "options__newQuickLaunchItem": {
+        "message": "新建"
+    },
+    "options__quickLaunchItemName": {
+        "message": "名稱"
+    },
+    "options__quickLaunchItemPath": {
+        "message": "路徑"
+    },
+    "options__quickLaunchItemArgs": {
+        "message": "啟動參數"
+    },
+    "options__quickLaunchItemEnable": {
+        "message": "在菜單中顯示"
     }
 }

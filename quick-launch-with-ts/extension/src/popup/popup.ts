@@ -1,4 +1,4 @@
-var vm =new Vue({
+new Vue({
     el :'#app',
     template :'#app-template',
     data():{
@@ -6,7 +6,8 @@ var vm =new Vue({
         port:browser.runtime.Port,
     }{return {
         itemList:[],
-        port :browser.runtime.connectNative('native_launcher'),
+        // see bugzil.la/1382069
+        port :(<any>browser).extension.getBackgroundPage().browser.runtime.connectNative("native_launcher"),
     }},
     computed :{
         itemUiList():QuickLaunchItemUiInfo[]{
@@ -19,30 +20,42 @@ var vm =new Vue({
     methods :{
         openOptionPage,
         async openItem(item:QuickLaunchItem){
-            this.port.postMessage({
-                type :'open_path',
-                data :{
-                    path :item.path,
-                    args :item.args||[],
-                },
-            });
-            var response:NativeResponse =await new Promise(resolve =>{
+            var cancelMadel =showLoadingMadel();
+            var response =await new Promise<NativeResponse>(resolve =>{
                 var port =this.port;
                 port.onMessage.addListener(function _self(response:NativeResponse) {
                     port.onMessage.removeListener(_self);
                     resolve(response);
                 });
-            }) as NativeResponse;
+                port.postMessage({
+                    type :'open_path',
+                    data :{
+                        path :item.path,
+                        args :item.args||[],
+                    },
+                });
+            });
 
-            if(response.errcode){
-                throw new Error(`Native response: ${response.errmsg}`);
-            }else{
-                console.log('Success of sent to native site.');
-                window.close();
+            cancelMadel();
+            log('receive response.',response);
+            switch(response.errcode){
+                case NativeResponseState.OK:
+                    window.close();
+                    break;
+                case NativeResponseState.EXEC_ERROR:
+                    browser.notifications.create({
+                        type   :browser.notifications.TemplateType.basic,
+                        title  :'Error '+(<ExecErrorNativeResponse>response).data.exit_code,
+                        message:(<ExecErrorNativeResponse>response).data.stderr,
+                    });
+                    break;
+                default:
+                    throw new Error(`Native response: ${JSON.stringify(response)}`);
             };
         },
     },
+    async created(){
+        this.itemList =(await browser.storage.sync.get('itemList')).itemList;
+    },
 });
-~async function(){
-    vm.itemList =(await browser.storage.sync.get('itemList')).itemList;
-}();
+

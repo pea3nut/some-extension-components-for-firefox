@@ -11,7 +11,7 @@
     "through2": "^2.0.3",
     "typescript": "^2.6.2"
   },
-  "main": "index.js",
+  "main": "",
   "scripts": {
     "dev": "gulp dev",
     "build": "gulp build"
